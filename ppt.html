@@ -1,337 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Team EmpowerHer Pitch Deck</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2eb 100%);
-            overflow: hidden;
-        }
-        .slide {
-            width: 100vw;
-            height: 100vh;
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .slide.active {
-            display: flex;
-            opacity: 1;
-        }
-        .slide-content {
-            max-width: 900px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 2.5rem;
-            text-align: center;
-            transform: scale(0.95);
-            transition: transform 0.5s ease-in-out;
-        }
-        .slide.active .slide-content {
-            transform: scale(1);
-        }
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #4b0082; /* Deep Purple */
-            margin-bottom: 1rem;
-        }
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #333;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        p, li {
-            font-size: 1.25rem;
-            color: #555;
-            line-height: 1.6;
-        }
-        ul {
-            text-align: left;
-            margin-top: 1rem;
-            padding-left: 1.5rem;
-        }
-        li {
-            margin-bottom: 0.5rem;
-        }
-        .card {
-            background-color: #fff;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .icon {
-            margin-bottom: 1rem;
-        }
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(75, 0, 130, 0.8);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: background 0.3s;
-        }
-        .arrow:hover {
-            background: rgba(75, 0, 130, 1);
-        }
-        .arrow svg {
-            fill: white;
-            width: 30px;
-            height: 30px;
-        }
-        .arrow.left {
-            left: 20px;
-        }
-        .arrow.right {
-            right: 20px;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #f0f4f8 0%, #d9e2eb 100%);
+        overflow: hidden;
+      }
+      .slide {
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .slide.active {
+        display: flex;
+        opacity: 1;
+      }
+      .slide-content {
+        max-width: 900px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 2.5rem;
+        text-align: center;
+        transform: scale(0.95);
+        transition: transform 0.5s ease-in-out;
+      }
+      .slide.active .slide-content {
+        transform: scale(1);
+      }
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #4b0082; /* Deep Purple */
+        margin-bottom: 1rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #333;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      p,
+      li {
+        font-size: 1.25rem;
+        color: #555;
+        line-height: 1.6;
+      }
+      ul {
+        text-align: left;
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      .card {
+        background-color: #fff;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      .icon {
+        margin-bottom: 1rem;
+      }
+      .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
+        background: rgba(75, 0, 130, 0.8);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: background 0.3s;
+      }
+      .arrow:hover {
+        background: rgba(75, 0, 130, 1);
+      }
+      .arrow svg {
+        fill: white;
+        width: 30px;
+        height: 30px;
+      }
+      .arrow.left {
+        left: 20px;
+      }
+      .arrow.right {
+        right: 20px;
+      }
+      .grid-container {
+        display: grid;
+        gap: 1.5rem;
+      }
+      @media (min-width: 768px) {
         .grid-container {
-            display: grid;
-            gap: 1.5rem;
+          grid-template-columns: repeat(2, 1fr);
         }
-        @media (min-width: 768px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+      }
+      @media (min-width: 1024px) {
+        .grid-container {
+          grid-template-columns: repeat(3, 1fr);
         }
-        @media (min-width: 1024px) {
-            .grid-container {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
+      }
+      .status-message {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        z-index: 100;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Slide 1: Title & Team Name -->
-    <div id="slide-1" class="slide bg-purple-100 flex-col justify-center items-center active">
-        <div class="slide-content p-8 md:p-12">
-            <h1 class="text-5xl md:text-6xl text-purple-800">Team EmpowerHer</h1>
-            <p class="text-xl md:text-2xl mt-4 text-purple-600 font-semibold">A Digital Safety & Awareness Companion</p>
-            <div class="mt-8 flex justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-24 w-24 text-purple-500">
-                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
-                </svg>
-            </div>
+    <div
+      id="slide-1"
+      class="slide bg-purple-100 flex-col justify-center items-center active"
+    >
+      <div class="slide-content p-8 md:p-12">
+        <h1 class="text-5xl md:text-6xl text-purple-800">Team EmpowerHer</h1>
+        <p class="text-xl md:text-2xl mt-4 text-purple-600 font-semibold">
+          A New Standard for Digital Safety
+        </p>
+        <div class="mt-8 flex justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="h-24 w-24 text-purple-500"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z"
+              clip-rule="evenodd"
+            />
+          </svg>
         </div>
+      </div>
     </div>
 
     <!-- Slide 2: The Problem -->
     <div id="slide-2" class="slide bg-pink-100">
-        <div class="slide-content p-8">
-            <h2 class="text-4xl text-purple-800">The Problem</h2>
-            <div class="flex flex-col md:flex-row items-center mt-6">
-                <div class="w-full md:w-1/2 flex justify-center items-center mb-6 md:mb-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-48 h-48 text-pink-500">
-                        <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a.75.75 0 0 0 1.5 0V6.75a3.75 3.75 0 1 1 7.5 0v3a.75.75 0 0 0 1.5 0v-3A5.25 5.25 0 0 0 12 1.5Zm3.75 7.5v3a.75.75 0 0 0 1.5 0v-3h3a.75.75 0 0 1 .75.75v6.75a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 17.25V10.5a.75.75 0 0 1 .75-.75h3Zm-1.5 2.25H9v2.25H7.5v-2.25ZM12 14.25h-1.5v-2.25H12v2.25Zm1.5 0H15v-2.25h-1.5v2.25Z" clip-rule="evenodd" />
-                    </svg>
-                </div>
-                <ul class="w-full md:w-1/2 text-left space-y-4">
-                    <li><span class="font-semibold">Early Vulnerability:</span> Children as young as 5-10 lack awareness of safety rules and emotional boundaries.</li>
-                    <li><span class="font-semibold">Parental Hesitation:</span> Parents struggle to discuss sensitive topics like abuse and exploitation.</li>
-                    <li><span class="font-semibold">Knowledge Gaps:</span> Girls may not recognize inappropriate behavior or manipulation and fear reporting it.</li>
-                    <li><span class="font-semibold">Limited Solutions:</span> Existing programs rarely cover both physical and emotional safety, leaving a critical gap.</li>
-                </ul>
-            </div>
+      <div class="slide-content p-8">
+        <h2 class="text-4xl text-purple-800">The Problem: A Silent Struggle</h2>
+        <div class="flex flex-col md:flex-row items-center mt-6">
+          <div
+            class="w-full md:w-1/2 flex justify-center items-center mb-6 md:mb-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-48 h-48 text-pink-500"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a.75.75 0 0 0 1.5 0V6.75a3.75 3.75 0 1 1 7.5 0v3a.75.75 0 0 0 1.5 0v-3A5.25 5.25 0 0 0 12 1.5Zm3.75 7.5v3a.75.75 0 0 0 1.5 0v-3h3a.75.75 0 0 1 .75.75v6.75a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 17.25V10.5a.75.75 0 0 1 .75-.75h3Zm-1.5 2.25H9v2.25H7.5v-2.25ZM12 14.25h-1.5v-2.25H12v2.25Zm1.5 0H15v-2.25h-1.5v2.25Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <ul class="w-full md:w-1/2 text-left space-y-4">
+            <li>
+              <span class="font-semibold">Vulnerability:</span> Young girls lack
+              the tools to recognize and report online abuse, leaving them
+              unprotected.
+            </li>
+            <li>
+              <span class="font-semibold">Fear of Reporting:</span> Many
+              incidents go unreported due to fear, embarrassment, or not knowing
+              who to turn to.
+            </li>
+            <li>
+              <span class="font-semibold">Ineffective Solutions:</span> Current
+              safety programs are often reactive and fail to address the complex
+              psychological tactics used by abusers.
+            </li>
+            <li>
+              <span class="font-semibold">Parental Gap:</span> Parents often
+              feel unprepared to have difficult conversations about digital
+              safety and exploitation.
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
 
     <!-- Slide 3: The Solution - SafeHer App -->
     <div id="slide-3" class="slide bg-purple-100">
-        <div class="slide-content p-8">
-            <h2 class="text-4xl text-purple-800">Our Solution: SafeHer App</h2>
-            <p class="text-xl mt-4">A digital safety and awareness companion focused on three key pillars:</p>
-            <div class="grid-container mt-8">
-                <div class="card">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon h-16 w-16 text-purple-600">
-                        <path d="M11.72 15.356A.75.75 0 0 0 12 15h.007a.75.75 0 0 0 .28-.056l7.5-3.75a.75.75 0 0 0 0-1.388l-7.5-3.75a.75.75 0 0 0-.28-.056H12a.75.75 0 0 0-.28.056l-7.5 3.75a.75.75 0 0 0 0 1.388l7.5 3.75Z" />
-                    </svg>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">AI Conversation Scanner</h3>
-                    <p class="text-gray-600">Detects “red flag” language and educates users on manipulative patterns.</p>
-                </div>
-                <div class="card">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon h-16 w-16 text-purple-600">
-                        <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 19.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 5.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                        <path d="m5.25 15.182-.44 4.526a.75.75 0 0 1-1.294.512l-.946-.945a.75.75 0 0 1 0-1.06l1.325-1.325a.75.75 0 0 1 .53-.22h.206a.75.75 0 0 1 .53.22l2.672 2.672a.75.75 0 0 1-.53.22H7.5a.75.75 0 0 1-.53-.22l-1.76-1.76Z" />
-                        <path d="m18.75 15.182.44 4.526a.75.75 0 0 0 1.294.512l.946-.945a.75.75 0 0 0 0-1.06l-1.325-1.325a.75.75 0 0 0-.53-.22h-.206a.75.75 0 0 0-.53.22l-2.672 2.672a.75.75 0 0 0 .53.22H16.5a.75.75 0 0 0 .53-.22l1.76-1.76Z" />
-                    </svg>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Self-Defense Training</h3>
-                    <p class="text-gray-600">Provides short, animated micro-lessons on basic self-defense techniques.</p>
-                </div>
-                <div class="card">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon h-16 w-16 text-purple-600">
-                        <path d="M14.25 1.5c-.835 0-1.66.196-2.413.574-.945.466-1.564 1.424-1.413 2.413.154 1.002.66 2.058 1.272 2.946" />
-                        <path fill-rule="evenodd" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 2.25a11.25 11.25 0 1 0 0-22.5 11.25 11.25 0 0 0 0 22.5ZM13.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd" />
-                    </svg>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Safe Reporting & Support</h3>
-                    <p class="text-gray-600">Features an SOS button and an anonymous portal for reporting incidents securely.</p>
-                </div>
-            </div>
+      <div class="slide-content p-8">
+        <h2 class="text-4xl text-purple-800">
+          Our Solution: A Proactive Companion
+        </h2>
+        <p class="text-xl mt-4">
+          Introducing SafeHer, the all-in-one app that empowers girls with
+          knowledge, skills, and a safe channel for help.
+        </p>
+        <div class="grid-container mt-8">
+          <div class="card">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="icon h-16 w-16 text-purple-600"
+            >
+              <path
+                d="M11.72 15.356A.75.75 0 0 0 12 15h.007a.75.75 0 0 0 .28-.056l7.5-3.75a.75.75 0 0 0 0-1.388l-7.5-3.75a.75.75 0 0 0-.28-.056H12a.75.75 0 0 0-.28.056l-7.5 3.75a.75.75 0 0 0 0 1.388l7.5 3.75Z"
+              />
+            </svg>
+            <h3 class="text-2xl font-semibold mb-2 text-gray-800">
+              AI Safety Guardian
+            </h3>
+            <p class="text-gray-600">
+              Our AI model analyzes conversations to proactively identify and
+              flag subtle manipulative language.
+            </p>
+          </div>
+          <div class="card">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="icon h-16 w-16 text-purple-600"
+            >
+              <path
+                d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 19.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 5.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+              />
+              <path
+                d="m5.25 15.182-.44 4.526a.75.75 0 0 1-1.294.512l-.946-.945a.75.75 0 0 1 0-1.06l1.325-1.325a.75.75 0 0 1 .53-.22h.206a.75.75 0 0 1 .53.22l2.672 2.672a.75.75 0 0 1-.53.22H7.5a.75.75 0 0 1-.53-.22l-1.76-1.76Z"
+              />
+              <path
+                d="m18.75 15.182.44 4.526a.75.75 0 0 0 1.294.512l.946-.945a.75.75 0 0 0 0-1.06l-1.325-1.325a.75.75 0 0 0-.53-.22h-.206a.75.75 0 0 0-.53.22l-2.672 2.672a.75.75 0 0 0 .53.22H16.5a.75.75 0 0 0 .53-.22l1.76-1.76Z"
+              />
+            </svg>
+            <h3 class="text-2xl font-semibold mb-2 text-gray-800">
+              Practical Self-Defense
+            </h3>
+            <p class="text-gray-600">
+              Offers animated, easy-to-learn self-defense lessons, accessible
+              anywhere, even offline.
+            </p>
+          </div>
+          <div class="card">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="icon h-16 w-16 text-purple-600"
+            >
+              <path
+                d="M14.25 1.5c-.835 0-1.66.196-2.413.574-.945.466-1.564 1.424-1.413 2.413.154 1.002.66 2.058 1.272 2.946"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 2.25a11.25 11.25 0 1 0 0-22.5 11.25 11.25 0 0 0 0 22.5ZM13.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <h3 class="text-2xl font-semibold mb-2 text-gray-800">
+              Secure & Anonymous Reporting
+            </h3>
+            <p class="text-gray-600">
+              A one-tap SOS and a private, evidence-gathering portal for
+              reporting incidents with confidence.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Slide 4: Key Features -->
     <div id="slide-4" class="slide bg-pink-100">
-        <div class="slide-content p-8">
-            <h2 class="text-4xl text-purple-800">Key Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">AI Safety Coach</h3>
-                    <p class="text-gray-600">Detects manipulative chat tones and provides real-time feedback.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">Self-Defense Library</h3>
-                    <p class="text-gray-600">Simple, visual, and available offline for maximum accessibility.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">Secure Report Portal</h3>
-                    <p class="text-gray-600">Allows for secure, anonymous evidence collection for authorities.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">Gamified Learning</h3>
-                    <p class="text-gray-600">Rewards users for completing lessons, making safety education engaging.</p>
-                </div>
-            </div>
+      <div class="slide-content p-8">
+        <h2 class="text-4xl text-purple-800">Why SafeHer Is Different</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-gray-800">
+              Proactive Prevention
+            </h3>
+            <p class="text-gray-600">
+              Our AI doesn't just react; it teaches users to spot red flags and
+              avoid danger before it escalates.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-gray-800">
+              Holistic Safety
+            </h3>
+            <p class="text-gray-600">
+              We address both physical and emotional threats, providing a
+              comprehensive safety solution.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-gray-800">
+              Seamless Reporting
+            </h3>
+            <p class="text-gray-600">
+              We offer an intuitive, secure pathway to report incidents,
+              eliminating barriers to seeking help.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-gray-800">
+              Designed for Trust
+            </h3>
+            <p class="text-gray-600">
+              The app's anonymous and gamified design builds trust and makes
+              safety education engaging for all ages.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
 
-    <!-- Slide 5: Benefits & Impact -->
+    <!-- Slide 5: Market & Impact -->
     <div id="slide-5" class="slide bg-purple-100">
-        <div class="slide-content p-8">
-            <h2 class="text-4xl text-purple-800">Benefits & Impact</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">Prevention</h3>
-                    <p class="text-gray-600">Teaches girls to identify manipulative behavior before it escalates into a dangerous situation.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">Empowerment</h3>
-                    <p class="text-gray-600">Provides practical skills and confidence through self-defense training and knowledge.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">Action</h3>
-                    <p class="text-gray-600">Offers a safe, digital evidence-collection and reporting mechanism.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">Accessibility</h3>
-                    <p class="text-gray-600">The app is designed to be accessible to a wide audience, including offline functionality.</p>
-                </div>
-            </div>
+      <div class="slide-content p-8">
+        <h2 class="text-4xl text-purple-800">Market & Impact</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-gray-800">
+              Target Audience
+            </h3>
+            <p class="text-gray-600">
+              Our primary market is girls aged 10-18, with a secondary market of
+              parents and educators.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-gray-800">Social Impact</h3>
+            <p class="text-gray-600">
+              SafeHer has the potential to become a vital public safety tool,
+              reducing incidents of online harassment and abuse.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-gray-800">Scalability</h3>
+            <p class="text-gray-600">
+              The model is easily adaptable to different languages and cultural
+              contexts, enabling global expansion.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-gray-800">Revenue Model</h3>
+            <p class="text-gray-600">
+              We plan to offer a freemium model with paid access to premium
+              content and personalized AI features.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
 
-    <!-- Slide 6: Why Judges Will Like It -->
+    <!-- Slide 6: Our Winning Edge -->
     <div id="slide-6" class="slide bg-pink-100">
-        <div class="slide-content p-8">
-            <h2 class="text-4xl text-purple-800">Why Judges Will Like It</h2>
-            <ul class="list-disc text-left space-y-4 text-xl">
-                <li><span class="font-semibold text-gray-800">Critical Social Issue:</span> The app directly tackles a major problem in society – women's safety.</li>
-                <li><span class="font-semibold text-gray-800">Innovative Approach:</span> It uniquely combines AI, education, and civic utility into one cohesive platform.</li>
-                <li><span class="font-semibold text-gray-800">Practical & Impactful:</span> This isn't just a theoretical solution; it's a practical tool that can be used by millions of women and girls.</li>
-                <li><span class="font-semibold text-gray-800">Unique from Competitors:</span> It stands out from typical educational apps by focusing on prevention and providing a tangible reporting system.</li>
-            </ul>
-        </div>
+      <div class="slide-content p-8">
+        <h2 class="text-4xl text-purple-800">Our Winning Edge</h2>
+        <ul class="list-disc text-left space-y-4 text-xl">
+          <li>
+            <span class="font-semibold text-gray-800"
+              >Addressing a Critical Need:</span
+            >
+            We're not just a cool gadget; we're a meaningful solution to a
+            pervasive social problem.
+          </li>
+          <li>
+            <span class="font-semibold text-gray-800"
+              >Innovative Technology:</span
+            >
+            Our unique combination of AI, UX design, and civic utility is a
+            game-changer in the safety app space.
+          </li>
+          <li>
+            <span class="font-semibold text-gray-800"
+              >Practical & Scalable:</span
+            >
+            The app is a tangible product with a clear path to market and the
+            potential for a massive social impact.
+          </li>
+          <li>
+            <span class="font-semibold text-gray-800">Unmatched Mission:</span>
+            Our competitors focus on one-off issues; we're building a
+            comprehensive ecosystem of safety and empowerment for every girl.
+          </li>
+        </ul>
+      </div>
     </div>
 
     <!-- Navigation Arrows -->
     <div id="prev" class="arrow left hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clip-rule="evenodd" />
-        </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z"
+          clip-rule="evenodd"
+        />
+      </svg>
     </div>
     <div id="next" class="arrow right">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd" d="M16.28 12.28a.75.75 0 0 0 0-1.06l-7.5-7.5a.75.75 0 0 0-1.06 1.06L14.69 12l-6.97 6.97a.75.75 0 1 0 1.06 1.06l7.5-7.5Z" clip-rule="evenodd" />
-        </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M16.28 12.28a.75.75 0 0 0 0-1.06l-7.5-7.5a.75.75 0 0 0-1.06 1.06L14.69 12l-6.97 6.97a.75.75 0 1 0 1.06 1.06l7.5-7.5Z"
+          clip-rule="evenodd"
+        />
+      </svg>
     </div>
+    <div id="status-message" class="status-message hidden">Initializing...</div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.slide');
-            const prevButton = document.getElementById('prev');
-            const nextButton = document.getElementById('next');
+      document.addEventListener("DOMContentLoaded", () => {
+        const statusDiv = document.getElementById("status-message");
+        statusDiv.classList.remove("hidden");
 
-            const updateSlide = () => {
-                slides.forEach((slide, index) => {
-                    slide.classList.remove('active');
-                });
-                slides[currentSlide].classList.add('active');
+        try {
+          const slides = document.querySelectorAll(".slide");
+          const prevButton = document.getElementById("prev");
+          const nextButton = document.getElementById("next");
 
-                if (currentSlide === 0) {
-                    prevButton.classList.add('hidden');
-                } else {
-                    prevButton.classList.remove('hidden');
-                }
+          if (!slides || slides.length === 0) {
+            statusDiv.textContent = "Error: Slides not found. Please refresh.";
+            console.error('Error: No slides found with class "slide"');
+            return;
+          }
+          if (!prevButton || !nextButton) {
+            statusDiv.textContent =
+              "Error: Navigation buttons not found. Please refresh.";
+            console.error("Error: Navigation buttons not found.");
+            return;
+          }
 
-                if (currentSlide === slides.length - 1) {
-                    nextButton.classList.add('hidden');
-                } else {
-                    nextButton.classList.remove('hidden');
-                }
-            };
+          statusDiv.textContent = "Presentation Ready!";
+          setTimeout(() => {
+            statusDiv.classList.add("hidden");
+          }, 2000);
 
-            const goToNextSlide = () => {
-                if (currentSlide < slides.length - 1) {
-                    currentSlide++;
-                    updateSlide();
-                }
-            };
-
-            const goToPrevSlide = () => {
-                if (currentSlide > 0) {
-                    currentSlide--;
-                    updateSlide();
-                }
-            };
-
-            nextButton.addEventListener('click', goToNextSlide);
-            prevButton.addEventListener('click', goToPrevSlide);
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight' || e.key === ' ') {
-                    goToNextSlide();
-                } else if (e.key === 'ArrowLeft') {
-                    goToPrevSlide();
-                }
+          let currentSlide = 0;
+          const updateSlide = () => {
+            slides.forEach((slide, index) => {
+              slide.classList.remove("active");
             });
+            slides[currentSlide].classList.add("active");
 
-            updateSlide();
-        });
+            if (currentSlide === 0) {
+              prevButton.classList.add("hidden");
+            } else {
+              prevButton.classList.remove("hidden");
+            }
+
+            if (currentSlide === slides.length - 1) {
+              nextButton.classList.add("hidden");
+            } else {
+              nextButton.classList.remove("hidden");
+            }
+          };
+
+          const goToNextSlide = () => {
+            if (currentSlide < slides.length - 1) {
+              currentSlide++;
+              updateSlide();
+            }
+          };
+
+          const goToPrevSlide = () => {
+            if (currentSlide > 0) {
+              currentSlide--;
+              updateSlide();
+            }
+          };
+
+          nextButton.addEventListener("click", goToNextSlide);
+          prevButton.addEventListener("click", goToPrevSlide);
+
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight" || e.key === " ") {
+              goToNextSlide();
+            } else if (e.key === "ArrowLeft") {
+              goToPrevSlide();
+            }
+          });
+
+          updateSlide();
+        } catch (error) {
+          statusDiv.textContent = `An error occurred. Check the console for details.`;
+          console.error("An unexpected error occurred:", error);
+        }
+      });
     </script>
-
-</body>
+  </body>
 </html>
